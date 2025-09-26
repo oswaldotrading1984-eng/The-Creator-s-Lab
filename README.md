@@ -36,6 +36,18 @@ If you want, I can also:
 - Use the `gh` CLI to create a new repo and push (you'll need to provide auth).
 
 Next step: push the current branch to GitHub. See command above.
+
+Important: configure webhooks before publishing
+
+- The HTML files include placeholders for Discord webhook URLs. Before making the site public, open `docs/index.html` (and `index.html` if you use it) and replace the `REPLACE_WITH_YOUR_DISCORD_WEBHOOK_URL` strings with your actual webhook URL or remove the client-side webhook entirely and route form submissions through a server to keep the webhook secret.
+
+Published site URL
+
+- After a successful deploy, your site will be available at:
+
+    `https://oswaldotrading1984-eng.github.io/The-Creator-s-Lab/`
+
+If you want me to configure a server-side endpoint to accept form submissions securely, tell me and I can scaffold a tiny server (Node/Express or Cloud Function) and update the forms to post there instead.
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Creator's Lab 🎨</title>
