@@ -58,7 +58,7 @@ body.dark-mode button:hover { background:linear-gradient(45deg,#1abc9c,#16a085);
 <section id="home">
 <h1>Welcome to The Creator's Lab</h1>
 <p>Your hub for cutting-edge research, creative projects, and innovative bots. 🚀</p>
-<a href="https://discord.gg/YOURSERVER" target="_blank"><button>Join Our Discord 🎉</button></a>
+<a href="https://discord.gg/YOURSERVER" target="_blank" rel="noopener"><button>Join Our Discord 🎉</button></a>
 </section>
 
 <!-- Services Section -->
@@ -176,7 +176,7 @@ body.dark-mode button:hover { background:linear-gradient(45deg,#1abc9c,#16a085);
 <footer style="text-align:center; padding:2rem; background:#1abc9c; color:#000;">
 <p>© 2025 The Creator's Lab 🔬 | Made with ❤️ | All rights reserved</p>
 <p>Follow us on Discord: <a href="https://discord.gg/8SEmnre7ww" target="_blank" rel="noopener">Join Now 🎉</a></p>
-<p>Follow us on Twitter: <a href="https://x.com/ThelabCrea50441" target="_blank" rel="noopener" Join now 🎉 </a></a></p>
+<p>Follow us on X: <a href="https://x.com/ThelabCrea50441" target="_blank" rel="noopener">Join now 🎉</a></p>
 <p>Built with 💻, 🖌️, and 🧠 by our talented team</p>
 </footer>
 
@@ -202,11 +202,14 @@ const ticketResponse = document.getElementById('ticketResponse');
 ticketForm.addEventListener('submit', async (e) => {
 e.preventDefault();
 const payload = { content:null, embeds:[{ title:`🎟 New Ticket: ${document.getElementById('ticketType').value}`, description:`**Name:** ${document.getElementById('ticketName').value}\n**Type:** ${document.getElementById('ticketType').value}\n**Description:** ${document.getElementById('ticketDesc').value}`, color:3066993, timestamp:new Date().toISOString() }] };
+// NOTE: Replace WEBHOOK_URL with your Discord webhook URL before publishing.
+const WEBHOOK_URL_TICKET = 'REPLACE_WITH_YOUR_DISCORD_WEBHOOK_URL';
 try {
-await fetch('https://discord.com/api/webhooks/1414288231943377026/eelZ6EuqrlAqc2AvuZ3bokFkExL0z-BfACZ5qq7JoI3cvCBT2LSk3PZPqf3HXd65NZx_',{ method:'POST', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(payload) });
-ticketResponse.textContent = '✅ Ticket submitted successfully!';
-ticketForm.reset();
-} catch(err) { ticketResponse.textContent = '❌ Error submitting ticket.'; console.error(err);}
+	if (WEBHOOK_URL_TICKET === 'REPLACE_WITH_YOUR_DISCORD_WEBHOOK_URL') throw new Error('Webhook not configured');
+	await fetch(WEBHOOK_URL_TICKET,{ method:'POST', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(payload) });
+	ticketResponse.textContent = '✅ Ticket submitted successfully!';
+	ticketForm.reset();
+} catch(err) { ticketResponse.textContent = '❌ Error submitting ticket — webhook not configured.'; console.error(err);} 
 });
 
 // ------------------------ Contact Form ------------------------
@@ -215,8 +218,13 @@ const contactResponse = document.getElementById('contactResponse');
 contactForm.addEventListener('submit', async (e) => {
 e.preventDefault();
 const payload = { content:null, embeds:[{ title:'📩 Contact Form Submission', description:`**Name:** ${document.getElementById('contactName').value}\n**Email:** ${document.getElementById('contactEmail').value}\n**Message:** ${document.getElementById('contactMessage').value}`, color:3447003, timestamp:new Date().toISOString() }] };
-try { await fetch('https://discord.com/api/webhooks/1414288231943377026/eelZ6EuqrlAqc2AvuZ3bokFkExL0z-BfACZ5qq7JoI3cvCBT2LSk3PZPqf3HXd65NZx_',{ method:'POST', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(payload) });
-contactResponse.textContent = '✅ Message sent successfully!'; contactForm.reset(); } catch(err){ contactResponse.textContent='❌ Error sending message.'; console.error(err);}
+// NOTE: Replace WEBHOOK_URL_CONTACT with your Discord webhook URL before publishing.
+const WEBHOOK_URL_CONTACT = 'REPLACE_WITH_YOUR_DISCORD_WEBHOOK_URL';
+try { 
+	if (WEBHOOK_URL_CONTACT === 'REPLACE_WITH_YOUR_DISCORD_WEBHOOK_URL') throw new Error('Webhook not configured');
+	await fetch(WEBHOOK_URL_CONTACT,{ method:'POST', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(payload) });
+	contactResponse.textContent = '✅ Message sent successfully!'; contactForm.reset(); 
+} catch(err){ contactResponse.textContent='❌ Error sending message — webhook not configured.'; console.error(err);} 
 });
 
 // ------------------------ Back-to-Top Button ------------------------
