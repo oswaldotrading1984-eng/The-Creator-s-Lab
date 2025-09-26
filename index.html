@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Creator's Lab 🔬</title>
+<style>
+/* ------------------------ Global Styles ------------------------ */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+body { background-color:#000; color:#fff; scroll-behavior:smooth; transition:0.3s; }
+a { text-decoration:none; color:#1abc9c; transition:0.3s; }
+a:hover { opacity:0.8; }
+h1,h2,h3,h4,h5,h6 { font-weight:bold; color:#fff; }
+header { position:fixed; top:0; left:0; width:100%; background:#1abc9c; color:#000; display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; z-index:1000; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+header h1 { font-size:1.8rem; color:#000; }
+nav a { margin-left:1.5rem; font-weight:600; cursor:pointer; }
+nav a:hover { color:#16a085; }
+section { padding:120px 5%; min-height:100vh; background-color:#111; opacity:0; transform:translateY(50px); transition:0.8s; border-radius:8px; margin-bottom:20px; }
+section h2 { font-size:2rem; margin-bottom:1rem; border-bottom:3px solid #1abc9c; display:inline-block; padding-bottom:0.3rem; animation:slideIn 1s ease forwards; }
+@keyframes slideIn { from{transform:translateX(-50px);opacity:0;} to{transform:translateX(0);opacity:1;} }
+button { cursor:pointer; border:none; border-radius:5px; padding:0.7rem 1.5rem; background:linear-gradient(45deg,#1abc9c,#16a085); color:#000; font-weight:bold; transition:0.3s; }
+button:hover { background:linear-gradient(45deg,#16a085,#1abc9c); color:#fff; box-shadow:0 0 15px #1abc9c; }
+input, textarea, select { width:100%; padding:0.9rem; margin-top:0.5rem; border:1px solid #444; border-radius:5px; background:#222; color:#fff; transition:0.3s; }
+input:focus, textarea:focus, select:focus { outline:none; border:1px solid #1abc9c; box-shadow:0 0 8px #1abc9c; }
+textarea { resize:none; }
+.card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; margin-top:2rem; }
+.card { background-color:#1a1a1a; color:#fff; padding:1.2rem; border-radius:10px; box-shadow:0 2px 15px rgba(255,255,255,0.05); transition:transform 0.3s, box-shadow 0.3s; position:relative; }
+.card:hover { transform:translateY(-7px); box-shadow:0 6px 25px rgba(255,255,255,0.15); }
+.card .tooltip { position:absolute; top:10px; right:10px; background:#16a085; color:#000; padding:5px 10px; border-radius:5px; font-size:0.8rem; display:none; z-index:10; }
+.card:hover .tooltip { display:block; }
+.blink { animation:blinker 1s linear infinite; }
+@keyframes blinker { 50% { opacity:0; } }
+#backToTop { position:fixed;bottom:30px;right:30px;padding:0.8rem 1.2rem;background:#1abc9c;color:#000;border:none;border-radius:50px;font-size:1.2rem;cursor:pointer;display:none;z-index:1000; transition:0.3s; }
+#backToTop:hover { background:#16a085; color:#fff; box-shadow:0 0 15px #1abc9c; }
+body.dark-mode { background-color:#000; color:#fff; }
+body.dark-mode section { background-color:#111; }
+body.dark-mode button { background:linear-gradient(45deg,#16a085,#1abc9c); color:#fff; }
+body.dark-mode button:hover { background:linear-gradient(45deg,#1abc9c,#16a085); color:#000; }
+@media(max-width:768px){header{flex-direction:column;align-items:flex-start;} nav a{margin:0.5rem 0; display:none; font-size:1.2rem;} .card-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}}
+@media(max-width:480px){h1{font-size:2rem;} button{padding:0.5rem 1rem;font-size:0.9rem;}}
+</style>
+</head>
+<body>
+<header>
+<h1>The Creator's Lab 🔬</h1>
+<nav>
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#labs">Labs & Projects</a>
+<a href="#staff">Staff</a>
+<a href="#tickets">Tickets</a>
+<a href="#contact">Contact</a>
+<button id="darkModeToggle">🌙</button>
+</nav>
+</header>
+
+<!-- Home Section -->
+<section id="home">
+<h1>Welcome to The Creator's Lab</h1>
+<p>Your hub for cutting-edge research, creative projects, and innovative bots. 🚀</p>
+<a href="https://discord.gg/YOURSERVER" target="_blank" rel="noopener"><button>Join Our Discord 🎉</button></a>
+</section>
+
+<!-- Services Section -->
+<section id="services">
+<h2>🎨 Services</h2>
+<div class="card-grid">
+<!-- 10+ service cards repeated with emojis and tooltips -->
+<div class="card"><h3>Graphics & Logos 🎨</h3><p>Create logos, banners, and visuals with top quality. ✨</p><span class="tooltip">High quality designs</span></div>
+<div class="card"><h3>Discord Bots 🤖</h3><p>Full-featured bots with slash commands & ticket systems. ⚡</p><span class="tooltip">Customizable bots</span></div>
+<div class="card"><h3>Server Automation ⚙️</h3><p>Automate server tasks and management. 💻</p><span class="tooltip">Efficiency boosted</span></div>
+<div class="card"><h3>Custom Merchandise 👕</h3><p>Uniforms, shirts, and merch for your team. 🛍️</p><span class="tooltip">High-quality printing</span></div>
+<div class="card"><h3>AI Integration 🤖</h3><p>Integrate AI tools into your projects seamlessly. 🧠</p><span class="tooltip">Smart solutions</span></div>
+<div class="card"><h3>Animation & Video 🎬</h3><p>Create animations and media content for projects. ✨</p><span class="tooltip">Professional media</span></div>
+<div class="card"><h3>Website Development 🌐</h3><p>Design and build interactive websites. 💻</p><span class="tooltip">Responsive & modern</span></div>
+<div class="card"><h3>Bot Analytics 📊</h3><p>Monitor server and bot activity efficiently. 📈</p><span class="tooltip">Insightful data</span></div>
+<div class="card"><h3>Community Management 👥</h3><p>Manage and engage your community professionally. 🗣️</p><span class="tooltip">Social engagement</span></div>
+<div class="card"><h3>AI Creative Lab 🤖✨</h3><p>Experiment with AI-driven creative projects. 🖌️</p><span class="tooltip">Innovative AI</span></div>
+</div>
+</section>
+
+<!-- Labs Section -->
+<section id="labs">
+<h2>🔬 Labs & Projects</h2>
+<p>Explore our innovative labs currently underway. Each lab focuses on advanced technology, creativity, and research. 🧪✨</p>
+<div class="card-grid">
+<!-- 20+ lab cards with emojis and tooltips -->
+<div class="card"><h3>AI Development Lab 🤖</h3><p>Building intelligent systems for automation, bots, and creative tools. 🧠</p><span class="tooltip">Machine Learning & AI</span></div>
+<div class="card"><h3>Graphic Design Studio 🎨</h3><p>Custom logos, banners, and visual assets for projects. ✨</p><span class="tooltip">Artistic projects</span></div>
+<div class="card"><h3>Bot & Automation Lab ⚡</h3><p>Developing Discord bots, server management, and automation scripts. 🤖</p><span class="tooltip">Efficiency & management</span></div>
+<div class="card"><h3>Research & Experiments 🔬</h3><p>Experimental projects exploring new technologies and ideas. 🧪</p><span class="tooltip">Innovative experiments</span></div>
+<div class="card"><h3>AI Assistant Lab 🤖</h3><p>Creating AI assistants to manage communities and tasks. 🧠</p><span class="tooltip">Smart bots</span></div>
+<div class="card"><h3>Creative Media Lab 🎬</h3><p>Producing graphics, videos, and animations for projects. 🎨</p><span class="tooltip">Visual storytelling</span></div>
+<div class="card"><h3>Server Tools Lab ⚙️</h3><p>Building tools to enhance server management and interactivity. 💻</p><span class="tooltip">Efficiency tools</span></div>
+<div class="card"><h3>Experimental Design Lab 🎨</h3><p>Trying new design concepts for unique solutions. ✨</p><span class="tooltip">Innovative ideas</span></div>
+<div class="card"><h3>AI Music Lab 🎵🤖</h3><p>Creating AI-generated music and soundscapes. 🎶</p><span class="tooltip">Music & AI</span></div>
+<div class="card"><h3>VR & AR Lab 🕶️</h3><p>Developing virtual and augmented reality experiences. 🌐</p><span class="tooltip">Immersive tech</span></div>
+<div class="card"><h3>Cybersecurity Lab 🔒</h3><p>Testing and securing systems for bots and servers. 🛡️</p><span class="tooltip">Safe & secure</span></div>
+<div class="card"><h3>AI Writing Lab ✍️🤖</h3><p>AI-driven content creation and writing tools. 📝</p><span class="tooltip">Smart writing</span></div>
+<div class="card"><h3>Physics Simulation Lab ⚛️</h3><p>Simulating physical systems for research and projects. 🌌</p><span class="tooltip">Scientific simulations</span></div>
+<div class="card"><h3>3D Printing Lab 🖨️</h3><p>Printing prototypes, models, and project components. 🏗️</p><span class="tooltip">Rapid prototyping</span></div>
+<div class="card"><h3>AI Game Lab 🎮🤖</h3><p>Developing AI-driven gaming experiences. 🎲</p><span class="tooltip">Interactive games</span></div>
+<div class="card"><h3>Robotics Lab 🤖🤖</h3><p>Designing and testing robots for multiple applications. ⚙️</p><span class="tooltip">Mechanical engineering</span></div>
+<div class="card"><h3>Community Engagement Lab 🗣️</h3><p>Creating tools to engage and manage communities efficiently. 👥</p><span class="tooltip">Community tech</span></div>
+<div class="card"><h3>AR Art Lab 🎨🕶️</h3><p>Blending augmented reality with artistic projects. 🌟</p><span class="tooltip">Creative AR</span></div>
+<div class="card"><h3>Science Education Lab 📚🔬</h3><p>Producing educational content with interactive experiments. 🧪</p><span class="tooltip">Learning & innovation</span></div>
+<div class="card"><h3>AI Simulation Lab 🤖🌌</h3><p>Simulating AI environments for research and testing. ⚡</p><span class="tooltip">AI testing</span></div>
+<div class="card"><h3>Innovation Lab 💡</h3><p>Brainstorming and prototyping cutting-edge projects. ✨</p><span class="tooltip">Idea incubation</span></div>
+<div class="card"><h3>Holographic Lab 🛸</h3><p>Creating holographic visualizations and experiences. 🌐</p><span class="tooltip">Futuristic tech</span></div>
+</div>
+</section>
+
+<!-- Staff Section -->
+<section id="staff">
+<h2>👤 Our Team</h2>
+<div class="card-grid">
+<div class="card"><h3>Fabian 🔬</h3><p>Lab Creator | Visionary & Head Scientist</p></div>
+<div class="card"><h3>Oswaldo 📝</h3><p>Executive Assistant | Operations & Coordination</p></div>
+<div class="card"><h3>Jonathan 🖌️</h3><p>Lab Assistant | Design & Media</p></div>
+<div class="card blink"><h3>Spot Opened ⚡</h3><p>Bot Specialist | Placeholder</p></div>
+<div class="card blink"><h3>Spot Opened 🧪</h3><p>Lead Head Scientist | Placeholder</p></div>
+<div class="card"><h3>Fabian 🌐</h3><p>Web Designer | Website & Projects</p></div>
+<div class="card blink"><h3>Spot Opened 🎨</h3><p>Creative Designer | Placeholder</p></div>
+<div class="card blink"><h3>Spot Opened 👥</h3><p>Community Manager | Placeholder</p></div>
+<!-- Repeat placeholders multiple times to expand lines -->
+<div class="card blink"><h3>Spot Opened ⚡</h3><p>Future Innovator | Placeholder</p></div>
+<div class="card blink"><h3>Spot Opened 🌟</h3><p>Future Assistant | Placeholder</p></div>
+<div class="card blink"><h3>Spot Opened 📝</h3><p>Future Documentation | Placeholder</p></div>
+<div class="card blink"><h3>Spot Opened 🎶</h3><p>Future Music Lab | Placeholder</p></div>
+<div class="card blink"><h3>Spot Opened 🖨️</h3><p>Future Prototype Technician | Placeholder</p></div>
+</div>
+</section>
+
+<!-- Tickets Section -->
+<section id="tickets">
+<h2>🎟 Open a Ticket</h2>
+<p>Submit your request and our team will respond promptly! 🚀</p>
+<form id="ticketForm">
+<label>🧑‍💻 Your Name</label>
+<input type="text" id="ticketName" required placeholder="Enter your full name">
+<label>📂 Type of Request</label>
+<select id="ticketType" required>
+<option value="General Inquiry">General Inquiry</option>
+<option value="Graphics Request">Graphics Request</option>
+<option value="Bot Development">Bot Development</option>
+<option value="Community Support">Community Support</option>
+<option value="Other">Other</option>
+</select>
+<label>📝 Description</label>
+<textarea id="ticketDesc" rows="5" required placeholder="Describe your request in detail..."></textarea>
+<button type="submit">Submit Ticket ✅</button>
+</form>
+<div id="ticketResponse" style="margin-top:1rem; font-weight:bold;"></div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+<h2>📩 Contact Us</h2>
+<p>Have questions or want to reach out directly? Fill the form below! ✨</p>
+<form id="contactForm">
+<label>🧑‍💻 Your Name</label>
+<input type="text" id="contactName" required placeholder="Enter your name">
+<label>📧 Email</label>
+<input type="email" id="contactEmail" required placeholder="Enter your email">
+<label>💬 Message</label>
+<textarea id="contactMessage" rows="5" required placeholder="Write your message here..."></textarea>
+<button type="submit">Send Message ✉️</button>
+</form>
+<div id="contactResponse" style="margin-top:1rem; font-weight:bold;"></div>
+</section>
+
+<!-- Back-to-Top Button -->
+<button id="backToTop">⬆️</button>
+
+<!-- Footer -->
+<footer style="text-align:center; padding:2rem; background:#1abc9c; color:#000;">
+<p>© 2025 The Creator's Lab 🔬 | Made with ❤️ | All rights reserved</p>
+<p>Follow us on Discord: <a href="https://discord.gg/8SEmnre7ww" target="_blank" rel="noopener">Join Now 🎉</a></p>
+<p>Built with 💻, 🖌️, and 🧠 by our talented team</p>
+</footer>
+
+<script>
+// ------------------------ Dark Mode ------------------------
+const darkModeToggle = document.getElementById('darkModeToggle');
+darkModeToggle.addEventListener('click', () => {
+document.body.classList.toggle('dark-mode');
+darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+});
+
+// ------------------------ Smooth Scroll ------------------------
+document.querySelectorAll('nav a').forEach(anchor => {
+anchor.addEventListener('click', function(e){
+e.preventDefault();
+document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+});
+});
+
+// ------------------------ Ticket Form ------------------------
+const ticketForm = document.getElementById('ticketForm');
+const ticketResponse = document.getElementById('ticketResponse');
+ticketForm.addEventListener('submit', async (e) => {
+e.preventDefault();
+const payload = { content:null, embeds:[{ title:`🎟 New Ticket: ${document.getElementById('ticketType').value}`, description:`**Name:** ${document.getElementById('ticketName').value}\n**Type:** ${document.getElementById('ticketType').value}\n**Description:** ${document.getElementById('ticketDesc').value}`, color:3066993, timestamp:new Date().toISOString() }] };
+// NOTE: Replace WEBHOOK_URL with your Discord webhook URL before publishing.
+const WEBHOOK_URL = 'REPLACE_WITH_YOUR_DISCORD_WEBHOOK_URL';
+try {
+	if (WEBHOOK_URL === 'REPLACE_WITH_YOUR_DISCORD_WEBHOOK_URL') throw new Error('Webhook not configured');
+	await fetch(WEBHOOK_URL,{ method:'POST', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(payload) });
+	ticketResponse.textContent = '✅ Ticket submitted successfully!';
+	ticketForm.reset();
+} catch(err) { ticketResponse.textContent = '❌ Error submitting ticket — webhook not configured.'; console.error(err);} 
+});
+
+// ------------------------ Contact Form ------------------------
+const contactForm = document.getElementById('contactForm');
+const contactResponse = document.getElementById('contactResponse');
+contactForm.addEventListener('submit', async (e) => {
+e.preventDefault();
+const payload = { content:null, embeds:[{ title:'📩 Contact Form Submission', description:`**Name:** ${document.getElementById('contactName').value}\n**Email:** ${document.getElementById('contactEmail').value}\n**Message:** ${document.getElementById('contactMessage').value}`, color:3447003, timestamp:new Date().toISOString() }] };
+// NOTE: Replace WEBHOOK_URL with your Discord webhook URL before publishing.
+const WEBHOOK_URL_CONTACT = 'REPLACE_WITH_YOUR_DISCORD_WEBHOOK_URL';
+try { 
+	if (WEBHOOK_URL_CONTACT === 'REPLACE_WITH_YOUR_DISCORD_WEBHOOK_URL') throw new Error('Webhook not configured');
+	await fetch(WEBHOOK_URL_CONTACT,{ method:'POST', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(payload) });
+	contactResponse.textContent = '✅ Message sent successfully!'; contactForm.reset(); 
+} catch(err){ contactResponse.textContent='❌ Error sending message — webhook not configured.'; console.error(err);} 
+});
+
+// ------------------------ Back-to-Top Button ------------------------
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => { backToTop.style.display = window.scrollY > 500 ? 'block' : 'none'; });
+backToTop.addEventListener('click', () => { window.scrollTo({ top:0, behavior:'smooth' }); });
+
+// ------------------------ Fade-in Animation ------------------------
+const fadeSections = document.querySelectorAll('section');
+// Set initial state for fade-in
+fadeSections.forEach(sec => {
+	sec.style.opacity = 0;
+	sec.style.transform = 'translateY(50px)';
+});
+window.addEventListener('scroll', () => {
+	const scrollY = window.scrollY + window.innerHeight;
+	fadeSections.forEach(sec => {
+		if(scrollY > sec.offsetTop + 100){
+			sec.style.opacity = 1;
+			sec.style.transform = 'translateY(0)';
+			sec.style.transition = 'opacity 0.8s, transform 0.8s';
+		} else {
+			sec.style.opacity = 0;
+			sec.style.transform = 'translateY(50px)';
+		}
+	});
+});
+</script>
+</body>
+</html>
